@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    @apply bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100;
+    min-height: 100vh;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-slate-200 dark:bg-slate-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-400 dark:bg-slate-700; border-radius: 3px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 ease-in-out shadow-lg hover:shadow-teal-500/25 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-teal-500/40;
+  }
+  .btn-secondary {
+    @apply bg-white border border-teal-500 text-teal-700 hover:bg-teal-500 hover:text-white dark:bg-transparent dark:text-teal-400 font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 ease-in-out;
+  }
+  .btn-accent {
+    @apply bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2.5 px-6 rounded-xl transition-all duration-300 ease-in-out shadow-lg hover:shadow-emerald-500/25 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-emerald-500/40;
+  }
+  .card {
+    @apply bg-white/90 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700/40 rounded-2xl overflow-hidden hover:border-teal-500/50 transition-all duration-300 ease-in-out hover:shadow-xl hover:shadow-teal-500/10 hover:-translate-y-1 shadow-sm;
+  }
+  .input-field {
+    @apply w-full bg-white dark:bg-slate-700/40 border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-100 placeholder-slate-500 dark:placeholder-slate-400 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 transition-all duration-300 ease-in-out;
+  }
+  .glass {
+    @apply bg-white/90 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-sm;
+  }
+  .section-title {
+    @apply text-3xl font-bold text-slate-900 dark:text-white mb-2;
+  }
+  .badge {
+    @apply inline-block bg-teal-500/15 text-teal-700 dark:text-teal-300 text-xs font-semibold px-3 py-1 rounded-full;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(160deg, #f8fafc 0%, #eef2ff 48%, #e0f2fe 100%);
+}
+
+.hero-gradient {
+  background: radial-gradient(ellipse at top, #dbeafe 0%, #eff6ff 45%, #f8fafc 80%);
+}
+
+.dark .gradient-bg {
+  background: linear-gradient(135deg, #020911 0%, #000000 50%, #020911 100%);
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(ellipse at top, #272427 0%, #020911 70%);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(20, 184, 166, 0.15);
+}
+
+/* Light-mode readability patch for legacy dark-first utility classes */
+:root:not(.dark) .glass .text-white,
+:root:not(.dark) .card .text-white,
+:root:not(.dark) .glass.text-white,
+:root:not(.dark) .card.text-white {
+  color: rgb(15 23 42 / 1);
+}
+
+:root:not(.dark) .glass .text-slate-400,
+:root:not(.dark) .card .text-slate-400 {
+  color: rgb(71 85 105 / 1);
+}
+
+:root:not(.dark) .glass .text-slate-200,
+:root:not(.dark) .card .text-slate-200 {
+  color: rgb(51 65 85 / 1);
+}
+
+:root:not(.dark) .glass .bg-slate-800\/60,
+:root:not(.dark) .card .bg-slate-800\/60,
+:root:not(.dark) .glass .bg-slate-800\/50,
+:root:not(.dark) .card .bg-slate-800\/50 {
+  background-color: rgb(241 245 249 / 0.95);
+}
+
+:root:not(.dark) .glass .border-slate-700,
+:root:not(.dark) .card .border-slate-700 {
+  border-color: rgb(203 213 225 / 1);
+}
